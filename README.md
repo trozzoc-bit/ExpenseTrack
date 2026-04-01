@@ -49,42 +49,37 @@ backend/sampleData.json
 
 Folder Structure
 expense-tracker/
-  frontend/   → React application
-  backend/    → Express API and database logic
+  frontend/
+  backend/
     models/
     routes/
     server.js
-
 How to Run the Project
-1. Install dependencies:
+1. Install dependencies
 cd backend
 npm install
 
 cd ../frontend
 npm install
-
-2. Create a .env file inside /backend:
+2. Create a .env file inside /backend
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
-
-3. Run the backend:
+3. Run the backend
 cd backend
 npm run dev
-
-4. Run the frontend: 
+4. Run the frontend
 cd frontend
 npm run dev
-
 Challenges
-One of the main challenges was connecting MongoDB Atlas, especially dealing with authentication and connection issues. This required careful configuration of the connection string and environment variables.
 
-Another challenge was structuring the UI to keep it clean while still displaying useful information like grouped expenses and category summaries.
+One of the main challenges was connecting MongoDB Atlas, especially dealing with authentication and connection issues.
+
+Another challenge was structuring the UI to keep it clean while still displaying useful information.
 
 Future Improvements
 Monthly spending insights
-Category-based analytics (e.g. highest spending category)
+Category-based analytics
 Improved visualizations
-Better mobile interactions
-
 Author
+
 Carola Trozzo
