@@ -48,50 +48,52 @@ Each expense follows this structure:
 A sample dataset is included in:
 backend/sampleData.json
 
----
-
 ## Folder Structure
-expense-tracker/
-  frontend/
-  backend/
-    models/
-    routes/
-    server.js
 
----
+`frontend/` → React application  
+`backend/` → Express API and database logic  
+`backend/models/` → Mongoose model  
+`backend/routes/` → API routes  
+`backend/server.js` → Server entry point
 
 ## How to Run the Project
-### 1. Install dependencies
-cd backend
-npm install
 
-cd ../frontend
-npm install
-### 2. Create a .env file inside /backend
-PORT=5000
+### 1. Install dependencies
+
+In the backend folder, run `npm install`.
+
+Then go to the frontend folder and run `npm install`.
+
+### 2. Create a `.env` file inside `backend`
+
+Add:
+
+PORT=5000  
 MONGO_URI=your_mongodb_connection_string
+
 ### 3. Run the backend
-cd backend
-npm run dev
+
+In the backend folder, run `npm run dev`.
+
 ### 4. Run the frontend
-cd frontend
-npm run dev
----
+
+In the frontend folder, run `npm run dev`.
+
 ## Challenges
 
 One of the main challenges was connecting MongoDB Atlas, especially dealing with authentication and connection issues. This required careful configuration of the connection string and environment variables.
 
 Another challenge was structuring the UI to keep it clean while still displaying useful information like grouped expenses and category summaries.
 
----
+## Future Improvements
 
-##Future Improvements
-Monthly spending insights
-Category-based analytics
-Improved visualizations
-Better mobile interactions
----
+- Monthly spending insights
+- Category-based analytics
+- Improved visualizations
+- Better mobile interactions
 
-##Author
+## Author
 
 Carola Trozzo
+
+
