@@ -42,7 +42,8 @@ Each expense follows this structure:
   "date": "string",
   "description": "string (optional)"
 }
-``` 
+```
+
 A sample dataset is included in:
 backend/sampleData.json
 
