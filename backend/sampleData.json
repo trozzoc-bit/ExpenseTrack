@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Groceries",
+        "category": "Groceries",
+        "amount": 85.5,
+        "date": "2026-04-01",
+        "description": ""
+    },
+    {
+        "title": "Dinner with friends",
+        "category": "Dining & Entertainment",
+        "amount": 42,
+        "date": "2026-04-02",
+        "description": "Restaurant"
+    },
+    {
+        "title": "Netflix",
+        "category": "Digital Services",
+        "amount": 15.99,
+        "date": "2026-04-03",
+        "description": "Monthly subscription"
+    },
+    {
+        "title": "Uber",
+        "category": "Transport",
+        "amount": 18.2,
+        "date": "2026-04-03",
+        "description": ""
+    },
+    {
+        "title": "Skincare",
+        "category": "Beauty",
+        "amount": 60,
+        "date": "2026-04-04",
+        "description": "Face products"
+    }
+]
