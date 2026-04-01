@@ -48,6 +48,8 @@ Each expense follows this structure:
 A sample dataset is included in:
 backend/sampleData.json
 
+---
+
 ## Folder Structure
 
 `frontend/` → React application  
@@ -55,6 +57,8 @@ backend/sampleData.json
 `backend/models/` → Mongoose model  
 `backend/routes/` → API routes  
 `backend/server.js` → Server entry point
+
+---
 
 ## How to Run the Project
 
@@ -79,11 +83,15 @@ In the backend folder, run `npm run dev`.
 
 In the frontend folder, run `npm run dev`.
 
+---
+
 ## Challenges
 
 One of the main challenges was connecting MongoDB Atlas, especially dealing with authentication and connection issues. This required careful configuration of the connection string and environment variables.
 
 Another challenge was structuring the UI to keep it clean while still displaying useful information like grouped expenses and category summaries.
+
+---
 
 ## Future Improvements
 
@@ -91,6 +99,8 @@ Another challenge was structuring the UI to keep it clean while still displaying
 - Category-based analytics
 - Improved visualizations
 - Better mobile interactions
+
+---
 
 ## Author
 
