@@ -42,7 +42,6 @@ Each expense follows this structure:
   "date": "string",
   "description": "string (optional)"
 }
-```
 
 A sample dataset is included in:
 backend/sampleData.json
@@ -72,14 +71,15 @@ cd frontend
 npm run dev
 Challenges
 
-One of the main challenges was connecting MongoDB Atlas, especially dealing with authentication and connection issues.
+One of the main challenges was connecting MongoDB Atlas, especially dealing with authentication and connection issues. This required careful configuration of the connection string and environment variables.
 
-Another challenge was structuring the UI to keep it clean while still displaying useful information.
+Another challenge was structuring the UI to keep it clean while still displaying useful information like grouped expenses and category summaries.
 
 Future Improvements
 Monthly spending insights
 Category-based analytics
 Improved visualizations
+Better mobile interactions
 Author
 
 Carola Trozzo
