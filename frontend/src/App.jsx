@@ -155,20 +155,49 @@ function App() {
     }, {});
   }, [expenses]);
 
+  const categoryTotals = useMemo(() => {
+    const totals = {};
+
+    expenses.forEach((expense) => {
+      const category = expense.category;
+      const amount = Number(expense.amount);
+
+      if (!totals[category]) {
+        totals[category] = 0;
+      }
+
+      totals[category] += amount;
+    });
+
+    return Object.entries(totals)
+      .map(([category, total]) => ({
+        category,
+        total,
+        color: categoryColors[category] || "#999",
+      }))
+      .sort((a, b) => b.total - a.total);
+  }, [expenses]);
+
+  const maxCategoryTotal = useMemo(() => {
+    if (categoryTotals.length === 0) return 0;
+    return Math.max(...categoryTotals.map((item) => item.total));
+  }, [categoryTotals]);
+
   return (
     <div className="app-shell">
       <div className="mobile-frame">
         <header className="topbar">
           <div>
-            <p className="eyebrow">
-              {currentView === "dashboard" ? "Dashboard" : "New Entry"}
-            </p>
-            <h1 className="brand-title">Fluid Ledger</h1>
+            <h1 className="app-title">Expense Tracker</h1>
           </div>
         </header>
 
         {currentView === "dashboard" ? (
           <main className="view-content">
+
+            <p className="dashboard-subtitle">
+              Track your spending flow and understand where your money goes.
+            </p>
             <section className="hero-card">
               <p className="section-label">Total Spent</p>
               <h2 className="balance-amount">${totalSpent.toFixed(2)}</h2>
@@ -184,8 +213,37 @@ function App() {
             </section>
 
             <section className="summary-card">
-              <h3>Quick Summary</h3>
-              <p>Total entries: {expenses.length}</p>
+              <h3>Spending by Category</h3>
+
+              {categoryTotals.length === 0 ? (
+                <p className="empty-state">No category data yet.</p>
+              ) : (
+                <div className="chart-list">
+                  {categoryTotals.map((item) => (
+                    <div key={item.category} className="chart-row">
+                      <div className="chart-row-top">
+                        <span className="chart-label">{item.category}</span>
+                        <span className="chart-value">
+                          ${item.total.toFixed(2)}
+                        </span>
+                      </div>
+
+                      <div className="chart-track">
+                        <div
+                          className="chart-fill"
+                          style={{
+                            width: `${maxCategoryTotal
+                              ? (item.total / maxCategoryTotal) * 100
+                              : 0
+                              }%`,
+                            backgroundColor: item.color,
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </section>
 
             <section className="expenses-section">
@@ -207,9 +265,7 @@ function App() {
                             backgroundColor:
                               categoryColors[exp.category] || "#999",
                           }}
-                        >
-                          ●
-                        </div>
+                        ></div>
 
                         <div className="expense-info">
                           <h5>{exp.title}</h5>
@@ -237,13 +293,12 @@ function App() {
           </main>
         ) : (
           <main className="view-content">
-            <section className="intro-block">
-              <p className="section-label">Track your spending flow.</p>
-              <p className="intro-text">
-                Add a new expense and keep everything organized in one place.
-              </p>
-            </section>
-
+            <p className="dashboard-subtitle">
+              Track your spending flow and understand where your money goes.
+            </p>
+            <p className="section-label">
+              {editingId ? "Edit Entry" : "New Entry"}
+            </p>
             <form className="expense-form-card" onSubmit={handleSubmit}>
               <label>
                 <span>Title</span>
